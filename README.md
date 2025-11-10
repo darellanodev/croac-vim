@@ -4,6 +4,10 @@ A game for learning VIM made in Python
 
 ## THIS APPLICATION IS IN AN EARLY STAGE OF DEVELOPMENT
 
+## Github repository
+
+- <https://github.com/darellanodev/croac-vim>
+
 ## Installation
 
 ### In Windows 10, with Python 3.14.0, using CMD
