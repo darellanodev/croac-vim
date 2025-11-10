@@ -1,5 +1,6 @@
 from src.exceptions import InvalidMoveError
 
+
 class Frog:
     def __init__(self, x, y):
         self.x = x
