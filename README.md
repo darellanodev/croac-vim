@@ -15,7 +15,7 @@ A game for learning VIM made in Python
 
 ## Requirements
 
-I made this application using Python 3.14.0 in Windows 10 using CMD console and VSCode.
+I made this application using Python 3.14.0 in Windows 10 using CMD console and VSCode. I also use the Microsoft Black Formatter extension in VSCode.
 
 ## Install
 
