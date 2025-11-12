@@ -10,4 +10,6 @@ class Board:
             raise BoardIndexError("x and y positions must be zero or greater")
         if y >= len(self.grid):
             raise BoardIndexError("y position is out of range")
+        if x >= len(self.grid[y]):
+            raise BoardIndexError("x position is out of range")
         return self.grid[y][x]

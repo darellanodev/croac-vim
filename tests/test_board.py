@@ -32,3 +32,6 @@ def test_board_get_cell_out_of_range():
 
     with pytest.raises(BoardIndexError):
         board.get_cell(0, 1)
+
+    with pytest.raises(BoardIndexError):
+        board.get_cell(100, 0)
