@@ -1,4 +1,6 @@
+import pytest
 from src.board import Board
+from src.exceptions import BoardIndexError
 
 
 def test_board_grid_creation_strings():
@@ -9,3 +11,15 @@ def test_board_grid_creation_strings():
     assert board.get_cell(0, 0) == "T"
     assert board.get_cell(4, 0) == "q"
     assert board.get_cell(4, 1) == "s"
+
+
+def test_board_get_cell_out_of_range():
+    layout = ["This is a sentence"]
+
+    board = Board(layout)
+
+    with pytest.raises(BoardIndexError):
+        board.get_cell(-1, 0)
+
+    with pytest.raises(BoardIndexError):
+        board.get_cell(0, -1)
