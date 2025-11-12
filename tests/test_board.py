@@ -13,7 +13,7 @@ def test_board_grid_creation_strings():
     assert board.get_cell(4, 1) == "s"
 
 
-def test_board_get_cell_out_of_range():
+def test_board_get_cell_with_negative_values():
     layout = ["This is a sentence"]
 
     board = Board(layout)
@@ -23,6 +23,12 @@ def test_board_get_cell_out_of_range():
 
     with pytest.raises(BoardIndexError):
         board.get_cell(0, -1)
+
+
+def test_board_get_cell_out_of_range():
+    layout = ["This is a sentence"]
+
+    board = Board(layout)
 
     with pytest.raises(BoardIndexError):
         board.get_cell(0, 1)
