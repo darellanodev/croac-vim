@@ -56,3 +56,14 @@ def test_board_set_cell_with_negative_values():
 
     with pytest.raises(BoardIndexError):
         board.set_cell(0, -1, "i")
+
+
+def test_board_set_cell_out_of_range():
+    layout = ["This is a sentence"]
+
+    board = Board(layout)
+
+    with pytest.raises(BoardIndexError):
+        board.set_cell(100, 0, "i")
+    with pytest.raises(BoardIndexError):
+        board.set_cell(0, 1, "i")
