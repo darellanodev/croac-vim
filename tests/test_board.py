@@ -44,3 +44,15 @@ def test_board_set_cell():
     board.set_cell(2, 0, "i")
 
     assert board.get_cell(2, 0) == "i"
+
+
+def test_board_set_cell_with_negative_values():
+    layout = ["This is a sentence"]
+
+    board = Board(layout)
+
+    with pytest.raises(BoardIndexError):
+        board.set_cell(-1, 0, "i")
+
+    with pytest.raises(BoardIndexError):
+        board.set_cell(0, -1, "i")

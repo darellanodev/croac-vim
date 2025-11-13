@@ -15,4 +15,6 @@ class Board:
         return self.grid[y][x]
 
     def set_cell(self, x, y, value):
+        if x < 0 or y < 0:
+            raise BoardIndexError("x and y positions must be zero or greater")
         self.grid[y][x] = value
