@@ -13,3 +13,6 @@ class Board:
         if x >= len(self.grid[y]):
             raise BoardIndexError("x position is out of range")
         return self.grid[y][x]
+
+    def set_cell(self, x, y, value):
+        self.grid[y][x] = value

@@ -35,3 +35,12 @@ def test_board_get_cell_out_of_range():
 
     with pytest.raises(BoardIndexError):
         board.get_cell(100, 0)
+
+
+def test_board_set_cell():
+    layout = ["Thxs is a sentence"]
+
+    board = Board(layout)
+    board.set_cell(2, 0, "i")
+
+    assert board.get_cell(2, 0) == "i"
