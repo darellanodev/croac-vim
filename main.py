@@ -9,6 +9,16 @@ CELL_HEIGHT = 50
 TEXT_COLOR = (255, 255, 255)
 BACKGROUND_COLOR = (12, 34, 63)
 
+
+def draw_board(screen, board, font):
+    for y in range(len(layout)):
+        for x in range(len(layout[y])):
+            char = board.get_cell(x, y)
+            if char != " ":
+                text_surface = font.render(char, True, TEXT_COLOR)
+                screen.blit(text_surface, (x * CELL_WIDTH, y * CELL_HEIGHT))
+
+
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 font = pygame.font.SysFont(None, 48)
@@ -24,12 +34,6 @@ while running:
             running = False
 
     screen.fill(BACKGROUND_COLOR)
-    for y in range(len(layout)):
-        for x in range(len(layout[y])):
-            char = board.get_cell(x, y)
-            if char != " ":
-                text_surface = font.render(char, True, TEXT_COLOR)
-                screen.blit(text_surface, (x * CELL_WIDTH, y * CELL_HEIGHT))
-
+    draw_board(screen, board, font)
     pygame.display.flip()
 pygame.quit()
