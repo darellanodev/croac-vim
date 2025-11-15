@@ -5,15 +5,6 @@ from src.constants import SCREEN_WIDTH, SCREEN_HEIGHT
 pygame.init()
 
 
-def draw_board(screen, board, font):
-    for y in range(len(board.grid)):
-        for x in range(len(board.grid[y])):
-            char = board.get_cell(x, y)
-            if char != " ":
-                text_surface = font.render(char, True, Board.TEXT_COLOR)
-                screen.blit(text_surface, (x * Board.CELL_WIDTH, y * Board.CELL_HEIGHT))
-
-
 def main():
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -31,7 +22,7 @@ def main():
                 running = False
 
         screen.fill(Board.BACKGROUND_COLOR)
-        draw_board(screen, board, font)
+        board.draw(screen, board, font)
         pygame.display.flip()
     pygame.quit()
 

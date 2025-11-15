@@ -25,3 +25,13 @@ class Board:
     def set_cell(self, x, y, value):
         self._check_bounds(x, y)
         self.grid[y][x] = value
+
+    def draw(self, screen, board, font):
+        for y in range(len(board.grid)):
+            for x in range(len(board.grid[y])):
+                char = board.get_cell(x, y)
+                if char != " ":
+                    text_surface = font.render(char, True, Board.TEXT_COLOR)
+                    screen.blit(
+                        text_surface, (x * Board.CELL_WIDTH, y * Board.CELL_HEIGHT)
+                    )
