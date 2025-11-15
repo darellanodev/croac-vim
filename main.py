@@ -15,6 +15,9 @@ def main():
 
     board = Board(layout)
 
+    frog_img = pygame.image.load("src/assets/frog_right.png").convert_alpha()
+    frog_x, frog_y = 0, 0
+
     running = True
     while running:
         for event in pygame.event.get():
@@ -23,6 +26,7 @@ def main():
 
         screen.fill(Board.BACKGROUND_COLOR)
         board.draw(screen, board, font)
+        screen.blit(frog_img, (frog_x * Board.CELL_WIDTH, frog_y * Board.CELL_HEIGHT))
         pygame.display.flip()
     pygame.quit()
 
