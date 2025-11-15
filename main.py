@@ -1,9 +1,8 @@
 import pygame
 from src.board import Board
+from src.constants import SCREEN_WIDTH, SCREEN_HEIGHT
 
 pygame.init()
-
-WIDTH, HEIGHT = 1280, 720
 
 
 def draw_board(screen, board, font):
@@ -15,7 +14,7 @@ def draw_board(screen, board, font):
                 screen.blit(text_surface, (x * Board.CELL_WIDTH, y * Board.CELL_HEIGHT))
 
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 font = pygame.font.SysFont(None, 48)
 
