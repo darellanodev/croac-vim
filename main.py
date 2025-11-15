@@ -5,7 +5,7 @@ from src.constants import SCREEN_WIDTH, SCREEN_HEIGHT
 pygame.init()
 
 
-def draw_board(screen, board, font):
+def draw_board(screen, board, font, layout):
     for y in range(len(layout)):
         for x in range(len(layout[y])):
             char = board.get_cell(x, y)
@@ -14,21 +14,27 @@ def draw_board(screen, board, font):
                 screen.blit(text_surface, (x * Board.CELL_WIDTH, y * Board.CELL_HEIGHT))
 
 
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+def main():
 
-font = pygame.font.SysFont(None, 48)
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-layout = ["The quick brown fox", "jumps over the lazy", "dogs and cat runs"]
+    font = pygame.font.SysFont(None, 48)
 
-board = Board(layout)
+    layout = ["The quick brown fox", "jumps over the lazy", "dogs and cat runs"]
 
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    board = Board(layout)
 
-    screen.fill(Board.BACKGROUND_COLOR)
-    draw_board(screen, board, font)
-    pygame.display.flip()
-pygame.quit()
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        screen.fill(Board.BACKGROUND_COLOR)
+        draw_board(screen, board, font, layout)
+        pygame.display.flip()
+    pygame.quit()
+
+
+if __name__ == "__main__":
+    main()
