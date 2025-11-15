@@ -1,4 +1,5 @@
 from src.exceptions import InvalidMoveError
+from src.board import Board
 
 
 class Frog:
@@ -11,3 +12,6 @@ class Frog:
             raise InvalidMoveError("Diagonal moves are not allowed")
         self.x += dx
         self.y += dy
+
+    def draw(self, screen, frog_img):
+        screen.blit(frog_img, (self.x * Board.CELL_WIDTH, self.y * Board.CELL_HEIGHT))
