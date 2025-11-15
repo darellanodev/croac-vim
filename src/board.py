@@ -2,6 +2,11 @@ from src.exceptions import BoardIndexError
 
 
 class Board:
+    CELL_WIDTH = 40
+    CELL_HEIGHT = 50
+    TEXT_COLOR = (255, 255, 255)
+    BACKGROUND_COLOR = (12, 34, 63)
+
     def __init__(self, layout):
         self.grid = [list(line) for line in layout]
 
