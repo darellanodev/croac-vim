@@ -2,7 +2,13 @@ import pygame
 from src.board import Board
 
 pygame.init()
+
 WIDTH, HEIGHT = 1280, 720
+CELL_WIDTH = 40
+CELL_HEIGHT = 50
+TEXT_COLOR = (255, 255, 255)
+BACKGROUND_COLOR = (12, 34, 63)
+
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 font = pygame.font.SysFont(None, 48)
@@ -17,14 +23,13 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill(((12, 34, 63)))
-
+    screen.fill(BACKGROUND_COLOR)
     for y in range(len(layout)):
         for x in range(len(layout[y])):
             char = board.get_cell(x, y)
             if char != " ":
-                text_surface = font.render(char, True, (255, 255, 255))
-                screen.blit(text_surface, (x * 40, y * 50))
+                text_surface = font.render(char, True, TEXT_COLOR)
+                screen.blit(text_surface, (x * CELL_WIDTH, y * CELL_HEIGHT))
 
     pygame.display.flip()
 pygame.quit()
