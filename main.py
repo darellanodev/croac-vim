@@ -5,9 +5,9 @@ from src.constants import SCREEN_WIDTH, SCREEN_HEIGHT
 pygame.init()
 
 
-def draw_board(screen, board, font, layout):
-    for y in range(len(layout)):
-        for x in range(len(layout[y])):
+def draw_board(screen, board, font):
+    for y in range(len(board.grid)):
+        for x in range(len(board.grid[y])):
             char = board.get_cell(x, y)
             if char != " ":
                 text_surface = font.render(char, True, Board.TEXT_COLOR)
@@ -31,7 +31,7 @@ def main():
                 running = False
 
         screen.fill(Board.BACKGROUND_COLOR)
-        draw_board(screen, board, font, layout)
+        draw_board(screen, board, font)
         pygame.display.flip()
     pygame.quit()
 
