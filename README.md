@@ -21,5 +21,8 @@ I made this application using Python 3.14.0 in Windows 10 using CMD console and 
 
 - Clone this repo and go into the cloned folder
 - Create the virtual environment with `python -m venv .venv`
-- Activate it `.venv\Scripts\activate`
+- Activate it:
+  - `.venv\Scripts\activate` in CMD
+  - or select the `Python: select Interpreter` option in VSCode, kill terminal if it's opened and open it again.
 - Install dependencies `python -m pip install -r requirements.txt`
+- Execute `run.sh` or `python main.py`
