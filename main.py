@@ -18,7 +18,6 @@ def main():
     frog = Frog(0, 0)
 
     frog_img = pygame.image.load("src/assets/frog_right.png").convert_alpha()
-    frog_x, frog_y = 0, 0
 
     running = True
     while running:
