@@ -3,13 +3,13 @@ from src.board import Board
 
 
 class Frog:
-    FROG_ANIM_INTERVAL = 300
+    FRAME_MAX_TIME = 300
 
     def __init__(self, x, y):
         self.x = x
         self.y = y
+        self.frame_time = 0
         self.frame = 0
-        self.frog_frame = 0
 
     def move(self, dx, dy):
         if dx != 0 and dy != 0:
@@ -18,19 +18,19 @@ class Frog:
         self.y += dy
 
     def change_frame(self):
-        if self.frog_frame == 0:
-            self.frog_frame = 1
+        if self.frame == 0:
+            self.frame = 1
         else:
-            self.frog_frame = 0
+            self.frame = 0
 
     def update_blink(self):
-        self.frame += 1
-        if self.frame > self.FROG_ANIM_INTERVAL:
+        self.frame_time += 1
+        if self.frame_time > self.FRAME_MAX_TIME:
             self.change_frame()
-            self.frame = 0
+            self.frame_time = 0
 
     def draw(self, screen, frog_images):
         screen.blit(
-            frog_images[self.frog_frame],
+            frog_images[self.frame],
             (self.x * Board.CELL_WIDTH, self.y * Board.CELL_HEIGHT),
         )
