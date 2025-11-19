@@ -30,6 +30,7 @@ def main():
 
         screen.fill(Board.BACKGROUND_COLOR)
         board.draw(screen, board, font)
+        frog.update_blink()
         frog.draw(screen, frog_images)
         pygame.display.flip()
     pygame.quit()
