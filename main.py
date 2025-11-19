@@ -17,7 +17,10 @@ def main():
     board = Board(layout)
     frog = Frog(0, 0)
 
-    frog_img = pygame.image.load("src/assets/frog_right.png").convert_alpha()
+    frog_images = [
+        pygame.image.load("src/assets/frog_closed.png").convert_alpha(),
+        pygame.image.load("src/assets/frog_open.png").convert_alpha(),
+    ]
 
     running = True
     while running:
@@ -27,7 +30,7 @@ def main():
 
         screen.fill(Board.BACKGROUND_COLOR)
         board.draw(screen, board, font)
-        frog.draw(screen, frog_img)
+        frog.draw(screen, frog_images)
         pygame.display.flip()
     pygame.quit()
 

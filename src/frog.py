@@ -13,5 +13,7 @@ class Frog:
         self.x += dx
         self.y += dy
 
-    def draw(self, screen, frog_img):
-        screen.blit(frog_img, (self.x * Board.CELL_WIDTH, self.y * Board.CELL_HEIGHT))
+    def draw(self, screen, frog_images):
+        screen.blit(
+            frog_images[0], (self.x * Board.CELL_WIDTH, self.y * Board.CELL_HEIGHT)
+        )
