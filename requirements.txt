@@ -3,5 +3,6 @@ iniconfig==2.3.0
 packaging==25.0
 pluggy==1.6.0
 pygame-ce==2.5.6
+pygbag==0.9.2
 Pygments==2.19.2
 pytest==9.0.0
