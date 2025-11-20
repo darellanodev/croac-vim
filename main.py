@@ -32,6 +32,8 @@ def main():
                     frog.move(1, 0)
                 if event.key == pygame.K_h:
                     frog.move(-1, 0)
+                if event.key == pygame.K_j:
+                    frog.move(0, 1)
 
         screen.fill(Board.BACKGROUND_COLOR)
         board.draw(screen, board, font)
