@@ -1,5 +1,6 @@
 from src.exceptions import InvalidMoveError
 from src.board import Board
+import pygame
 
 
 class Frog:
@@ -34,3 +35,13 @@ class Frog:
             frog_images[self.frame],
             (self.x * Board.CELL_WIDTH, self.y * Board.CELL_HEIGHT),
         )
+
+    def handle_movement(self, key):
+        if key == pygame.K_l:
+            self.move(1, 0)
+        if key == pygame.K_h:
+            self.move(-1, 0)
+        if key == pygame.K_j:
+            self.move(0, 1)
+        if key == pygame.K_k:
+            self.move(0, -1)

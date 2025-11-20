@@ -28,14 +28,7 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_l:
-                    frog.move(1, 0)
-                if event.key == pygame.K_h:
-                    frog.move(-1, 0)
-                if event.key == pygame.K_j:
-                    frog.move(0, 1)
-                if event.key == pygame.K_k:
-                    frog.move(0, -1)
+                frog.handle_movement(event.key)
 
         screen.fill(Board.BACKGROUND_COLOR)
         board.draw(screen, board, font)
