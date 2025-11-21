@@ -1,6 +1,6 @@
 # Croac Vim
 
-A game for learning VIM made in Python
+A game for learning VIM made in Python and Pygame CE.
 
 ## THIS APPLICATION IS IN AN EARLY STAGE OF DEVELOPMENT
 
