@@ -1,9 +1,10 @@
-name: Deploy PyGameCE with Pygbag
+name: Deploy PyGameCE Web with Pygbag
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -29,16 +30,20 @@ jobs:
       - name: Install pygbag
         run: |
           python -m pip install --upgrade pip
-          pip install pygbag==0.8.0
+          pip install pygbag==0.7.1
 
       - name: Install emscripten
         uses: mymindstorm/setup-emsdk@v12
         with:
           version: 3.1.63
 
-      - name: Build game with pygbag
+      - name: Build Web version with pygbag
         run: |
-          pygbag --build .
+          pygbag --build main.py
+
+      - name: Show build contents
+        run: |
+          ls -R build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
