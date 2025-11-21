@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install system packages
         run: |
@@ -23,35 +23,19 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install pygbag
+      - name: Install pygbag (stable version)
         run: |
           python -m pip install --upgrade pip
-          pip install pygbag
+          pip install pygbag==0.8.0
 
-      - name: Cache Emscripten
-        id: cache-emsdk
-        uses: actions/cache@v3
+      - name: Install emscripten (stable version)
+        uses: mymindstorm/setup-emsdk@v12
         with:
-          path: ~/.emsdk
-          key: emsdk-cache
-
-      - name: Install Emscripten (emsdk)
-        if: steps.cache-emsdk.outputs.cache-hit != 'true'
-        run: |
-          git clone https://github.com/emscripten-core/emsdk.git ~/.emsdk
-          cd ~/.emsdk
-          ./emsdk install latest
-          ./emsdk activate latest
-
-      - name: Activate Emscripten
-        run: |
-          source ~/.emsdk/emsdk_env.sh
-          echo "EMSDK ready"
+          version: 3.1.63
 
       - name: Build game with pygbag
         run: |
-          source ~/.emsdk/emsdk_env.sh
-          pygbag .
+          pygbag --no-cache --build .
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
