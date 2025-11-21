@@ -12,6 +12,7 @@ A game for learning VIM made in Python and Pygame CE.
 
 [![Python](https://img.shields.io/badge/python-%233776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
 [![Pygame CE](https://img.shields.io/badge/pygame--ce-%230C2D48.svg?style=flat&logo=pygame&logoColor=white)](https://github.com/pygame-community/pygame-ce)
+[![Pygbag](https://img.shields.io/badge/pygbag-%230C2D48.svg?style=flat&logo=python&logoColor=white)](https://github.com/pygame-web/pygbag)
 
 ## Requirements
 
