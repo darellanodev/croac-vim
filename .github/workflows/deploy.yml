@@ -13,37 +13,45 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: List files for debug
-        run: ls -la
-
-      - name: Install system dependencies
+      - name: Install system packages
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            libsdl2-dev \
-            libsdl2-image-dev \
-            libsdl2-mixer-dev \
-            libsdl2-ttf-dev \
-            libportmidi-dev \
-            libfreetype6-dev \
-            libjpeg-dev \
-            libpng-dev \
-            libtiff-dev \
-            libx11-dev
+          sudo apt-get install -y ffmpeg
 
-      - name: Set up Python 3.14t
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.14t"
-          allow-prereleases: true
+          python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install pygbag
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
+          pip install pygbag
+
+      - name: Cache Emscripten
+        id: cache-emsdk
+        uses: actions/cache@v3
+        with:
+          path: ~/.emsdk
+          key: emsdk-cache
+
+      - name: Install Emscripten (emsdk)
+        if: steps.cache-emsdk.outputs.cache-hit != 'true'
+        run: |
+          git clone https://github.com/emscripten-core/emsdk.git ~/.emsdk
+          cd ~/.emsdk
+          ./emsdk install latest
+          ./emsdk activate latest
+
+      - name: Activate Emscripten
+        run: |
+          source ~/.emsdk/emsdk_env.sh
+          echo "EMSDK ready"
 
       - name: Build game with pygbag
-        run: pygbag .
+        run: |
+          source ~/.emsdk/emsdk_env.sh
+          pygbag .
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
