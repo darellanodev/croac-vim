@@ -27,3 +27,12 @@ I made this application using Python 3.14.0 in Windows 10 using CMD console and 
   - or select the `Python: select Interpreter` option in VSCode, kill terminal if it's opened and open it again.
 - Install dependencies `python -m pip install -r requirements.txt`
 - Execute `run.sh` or `python main.py`
+
+## Unit tests
+
+- Activate the virtual environment (see Install section)
+- Execute `pytest`
+
+## Try it online
+
+<https://darellanodev.github.io/croac-vim/>
