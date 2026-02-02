@@ -1,5 +1,7 @@
 # Croac Vim
 
+![Croac Vim Banner](https://github.com/darellanodev/croac-vim/blob/main/github_readme/banner.png?raw=true)
+
 A game for learning VIM made in Python and Pygame CE.
 
 ## THIS APPLICATION IS IN AN EARLY STAGE OF DEVELOPMENT
